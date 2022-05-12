@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import Input from "./components/input";
+import Button from "./components/Button";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [count, setCount] = useState(0);
+   const [toggle, setToggle] = useState(false);
+   const [val, setVal] = useState("hello");
+   return (
+      <div className="App">
+         <h1>Count: {count}</h1>
+         <button onClick={() => setCount((pr) => pr + 1)}>incr</button>
+         <button onClick={() => setCount((prev) => prev - 1)}>decr</button>
+         <button onClick={() => setToggle(!toggle)}>toggle</button>
+         {toggle ? <p>Hello World</p> : ""}
+         <br />
+         <label>{val}</label>
+         <input value={val} onChange={(e) => setVal(e.target.value)} />
+         <Input type={"number"} style={{ backgroundColor: "pink" }} />
+         <Button style={{ backgroundColor: "purple" }}>Btn</Button>
+      </div>
+   );
 }
 
 export default App;
