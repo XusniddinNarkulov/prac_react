@@ -19,7 +19,7 @@ function App() {
          <label>{val}</label>
          <input value={val} onChange={(e) => setVal(e.target.value)} />
          <Input type={"number"} style={{ backgroundColor: "pink" }} />
-         <Button style={{ backgroundColor: "purple" }}>Btn</Button>
+         <Button style={{ backgroundColor: "purple" }}>Hello World</Button>
       </div>
    );
 }
