@@ -43,6 +43,13 @@ export default function Slider() {
       }
    }, [index]);
 
+   useEffect(() => {
+      const intervalSlider = setInterval(() => {
+         setIndex((prev) => prev + 1);
+      }, 3000);
+      return () => clearInterval(intervalSlider);
+   });
+
    return (
       <div
          style={{ display: "flex", justifyContent: "center", marginTop: "5%" }}
@@ -80,7 +87,7 @@ export default function Slider() {
                </ul>
                <button
                   className="prev-screen"
-                  onClick={() => setIndex(index - 1)}
+                  onClick={() => setIndex((prev) => prev - 1)}
                >
                   <i className="icon-angle-left" style={{ color: "" }}>
                      ⬅
@@ -88,7 +95,7 @@ export default function Slider() {
                </button>
                <button
                   className="next-screen"
-                  onClick={() => setIndex(index + 1)}
+                  onClick={() => setIndex((prev) => prev + 1)}
                >
                   <i className="icon-angle-right">➡</i>
                </button>
